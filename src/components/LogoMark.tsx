@@ -37,7 +37,7 @@ export default function LogoMark({ className = "h-12 w-12" }: LogoMarkProps) {
         <circle cx="8" cy="52" r="2.8" fill="#8ed0ff" />
       </g>
 
-      <g transform="translate(54 70)">
+      <g className="logo-gear-spin" transform="translate(54 70)">
         {[0, 45, 90, 135, 180, 225, 270, 315].map((rotation) => (
           <rect
             key={rotation}
