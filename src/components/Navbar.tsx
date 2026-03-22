@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Menu, X, LogIn, LogOut, User as UserIcon } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "../context/FirebaseContext";
+import LogoMark from "./LogoMark";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,11 +12,8 @@ export default function Navbar() {
     <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/8 bg-[#07101b]/88 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6">
         <a href="#top" className="flex min-w-0 items-center gap-3">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-full border border-industrial-accent/30 bg-white/[0.03]">
-            <svg viewBox="0 0 100 100" className="h-full w-full fill-current text-industrial-accent">
-              <path d="M50 5 L90 25 L90 75 L50 95 L10 75 L10 25 Z" fill="none" stroke="currentColor" strokeWidth="4" />
-              <path d="M35 35 H65 V45 H45 V55 H65 V65 H35" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+          <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-white/[0.02]">
+            <LogoMark className="h-12 w-12" />
           </div>
           <div className="flex min-w-0 flex-col">
             <span className="truncate text-[0.95rem] font-semibold leading-none tracking-[0.14em] text-white sm:text-base">

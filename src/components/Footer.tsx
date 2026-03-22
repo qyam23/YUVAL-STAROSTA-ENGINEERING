@@ -1,3 +1,5 @@
+import LogoMark from "./LogoMark";
+
 export default function Footer() {
   return (
     <footer className="border-t border-white/8 bg-[#050a12] px-6 py-[4.5rem]">
@@ -5,8 +7,8 @@ export default function Footer() {
         <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="col-span-1 lg:col-span-2">
             <div className="mb-8 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-industrial-accent/30 bg-white/[0.03]">
-                <span className="text-lg font-bold text-industrial-accent">Y</span>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/[0.02]">
+                <LogoMark className="h-12 w-12" />
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white">YUVAL STAROSTA ENGINEERING</p>
