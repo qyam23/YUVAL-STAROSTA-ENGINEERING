@@ -38,7 +38,7 @@ const domains: {
 
 function ERLabsVisual() {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(79,149,255,0.24),transparent_34%),linear-gradient(180deg,#122334_0%,#09111d_100%)]">
+    <div className="absolute inset-0 overflow-hidden bg-[radial-gradient(circle_at_18%_18%,rgba(89,168,255,0.28),transparent_26%),radial-gradient(circle_at_80%_24%,rgba(58,113,205,0.18),transparent_24%),linear-gradient(180deg,#13263b_0%,#0a1420_100%)]">
       <div
         className="absolute inset-0 opacity-25"
         style={{
@@ -46,7 +46,7 @@ function ERLabsVisual() {
           backgroundSize: "28px 28px",
         }}
       />
-      <div className="absolute left-5 right-5 top-5 h-8 rounded-full border border-[#78a8df]/20 bg-[#0d1725]/85" />
+      <div className="absolute left-5 right-5 top-5 h-8 rounded-full border border-[#78a8df]/20 bg-[#0d1725]/82" />
       <div className="absolute left-5 right-5 top-[4.25rem] grid grid-cols-[1.1fr_0.9fr] gap-3">
         <div className="rounded-2xl border border-[#78a8df]/20 bg-[#0d1725]/84 p-3">
           <div className="mb-3 flex items-end gap-2">
@@ -75,8 +75,7 @@ function ERLabsVisual() {
           ))}
         </div>
       </div>
-      <div className="absolute inset-x-5 bottom-[5.5rem] rounded-2xl border border-[#78a8df]/18 bg-[#0d1725]/70 p-3">
-        <div className="mb-2 text-[10px] uppercase tracking-[0.24em] text-[#7dc8ff]">Live production overview</div>
+      <div className="absolute inset-x-5 bottom-[6.75rem] rounded-2xl border border-[#78a8df]/18 bg-[#0d1725]/68 p-3">
         <div className="grid grid-cols-4 gap-2">
           {[64, 82, 53, 91].map((value, idx) => (
             <div key={idx} className="rounded-xl bg-white/[0.03] p-2 text-center">
@@ -92,7 +91,7 @@ function ERLabsVisual() {
 
 function ExtrusionVisual() {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[linear-gradient(180deg,#0b1626_0%,#08111d_100%)]">
+    <div className="absolute inset-0 overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(61,122,214,0.22),transparent_28%),linear-gradient(180deg,#0e1b2d_0%,#09111d_100%)]">
       <div
         className="absolute inset-0 opacity-28"
         style={{
@@ -116,9 +115,7 @@ function ExtrusionVisual() {
         <path d="M108 84 L140 84 L154 112" fill="none" stroke="#74b8ff" strokeWidth="2.5" />
         <rect x="60" y="58" width="34" height="26" rx="6" fill="#132031" stroke="#74b8ff" strokeWidth="2" />
         <rect x="104" y="58" width="34" height="26" rx="6" fill="#132031" stroke="#74b8ff" strokeWidth="2" />
-        <path d="M43 190 H317" stroke="#6d84a0" strokeDasharray="6 6" />
-        <text x="42" y="206" fill="#84c8ff" fontSize="12">Twin-screw masterbatch line</text>
-        <text x="42" y="224" fill="#c3d8ea" fontSize="10">Feeders  Barrel zones  Kneading blocks  Discharge</text>
+        <path d="M43 182 H317" stroke="#6d84a0" strokeDasharray="6 6" />
       </svg>
     </div>
   );
@@ -126,8 +123,8 @@ function ExtrusionVisual() {
 
 function FactoryVisual() {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[linear-gradient(180deg,#17202c_0%,#0d1521_58%,#0b1119_100%)]">
-      <div className="absolute inset-x-0 bottom-0 h-[40%] bg-[linear-gradient(180deg,rgba(160,167,173,0.04),rgba(188,193,199,0.18))]" />
+    <div className="absolute inset-0 overflow-hidden bg-[radial-gradient(circle_at_78%_18%,rgba(237,194,79,0.16),transparent_22%),linear-gradient(180deg,#182331_0%,#0c141f_60%,#0a1018_100%)]">
+      <div className="absolute inset-x-0 bottom-0 h-[44%] bg-[linear-gradient(180deg,rgba(160,167,173,0.04),rgba(188,193,199,0.18))]" />
       <svg viewBox="0 0 360 260" className="absolute inset-0 h-full w-full">
         <path d="M0 92 H360" stroke="#8592a2" strokeWidth="2" opacity="0.4" />
         {[34, 92, 152, 212, 272, 330].map((x) => (
@@ -161,8 +158,6 @@ function FactoryVisual() {
             strokeWidth="1.8"
           />
         ))}
-        <text x="24" y="208" fill="#cfe0ef" fontSize="11">Factory platform architecture</text>
-        <text x="24" y="224" fill="#7dbfff" fontSize="10">Steel platforms  walkways  stairs  process layout</text>
       </svg>
     </div>
   );
@@ -170,7 +165,7 @@ function FactoryVisual() {
 
 function AutomationVisual() {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[linear-gradient(180deg,#0f1a2a_0%,#09111d_100%)]">
+    <div className="absolute inset-0 overflow-hidden bg-[radial-gradient(circle_at_22%_22%,rgba(90,155,255,0.18),transparent_26%),linear-gradient(180deg,#101b2b_0%,#09111d_100%)]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(98,181,255,0.18),transparent_30%)]" />
       <svg viewBox="0 0 360 260" className="absolute inset-0 h-full w-full">
         <rect x="24" y="34" width="198" height="124" rx="14" fill="#101a28" stroke="#80c6ff" strokeWidth="2.5" />
@@ -188,8 +183,6 @@ function AutomationVisual() {
             />
           </g>
         ))}
-        <text x="44" y="63" fill="#91d3ff" fontSize="10">PLC LADDER LOGIC</text>
-
         <rect x="248" y="52" width="66" height="118" rx="8" fill="#172536" stroke="#8fb7d9" strokeWidth="2.5" />
         <rect x="258" y="66" width="46" height="12" rx="3" fill="#304964" />
         {[0, 1, 2, 3, 4].map((idx) => (
@@ -211,7 +204,6 @@ function AutomationVisual() {
         <line x1="136" y1="218" x2="120" y2="203" stroke="#18273a" strokeWidth="5" />
         <line x1="136" y1="218" x2="152" y2="202" stroke="#18273a" strokeWidth="5" />
 
-        <text x="24" y="24" fill="#88cbff" fontSize="10">HMI  PLC  CONTROL CABINET</text>
       </svg>
     </div>
   );
@@ -251,10 +243,10 @@ export default function DomainGrid() {
               className="group relative flex aspect-[0.96] min-h-[15.5rem] flex-col justify-end overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#0d1725]/70 p-4 shadow-[0_24px_48px_rgba(0,0,0,0.32)] transition-all duration-300 hover:border-industrial-accent/55 hover:shadow-[0_28px_60px_rgba(0,0,0,0.4)] sm:min-h-[17rem] sm:p-5"
             >
               <DomainVisual id={domain.id} />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,12,18,0.02)_0%,rgba(8,12,18,0.1)_24%,rgba(8,12,18,0.36)_56%,rgba(8,12,18,0.74)_82%,rgba(8,12,18,0.84)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,12,18,0.02)_0%,rgba(8,12,18,0.08)_24%,rgba(8,12,18,0.22)_48%,rgba(8,12,18,0.72)_78%,rgba(8,12,18,0.9)_100%)]" />
               <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(212,175,55,0.08),rgba(212,175,55,0.0)_30%)]" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(82,146,214,0.18),transparent_34%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="absolute inset-x-0 bottom-0 h-[52%] bg-[linear-gradient(180deg,rgba(8,12,18,0)_0%,rgba(8,12,18,0.24)_18%,rgba(8,12,18,0.74)_100%)]" />
+              <div className="absolute inset-x-0 bottom-0 h-[46%] bg-[linear-gradient(180deg,rgba(8,12,18,0)_0%,rgba(8,12,18,0.18)_18%,rgba(8,12,18,0.82)_100%)]" />
 
               <div className="relative z-10 flex h-full flex-col justify-between">
                 <div className="flex justify-between">
@@ -264,7 +256,6 @@ export default function DomainGrid() {
                   <ArrowUpRight size={18} className="text-white/60 transition-colors group-hover:text-industrial-accent" />
                 </div>
                 <div className="pt-12 text-left">
-                  <p className="text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-industrial-accent/95">Domain</p>
                   <h3 className="mt-3 max-w-[12rem] text-lg font-semibold leading-tight text-white sm:text-xl">
                     {domain.title}
                   </h3>
