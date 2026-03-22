@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 import { motion } from "motion/react";
 import { Factory, Cpu, Settings, Database, ArrowUpRight } from "lucide-react";
 import factoryBuildingMasterplan from "../assets/factory-building-masterplan.png";
+import extrusionEngineeringVisual from "../assets/extrusion-engineering-visual.png";
 
 type DomainId = "intelligence" | "extrusion" | "factory" | "automation";
 
@@ -28,7 +29,7 @@ const domains: {
     title: "Extrusion Engineering",
     descriptor: "Twin-screw compounding and process optimization",
     icon: <Settings className="text-industrial-accent" size={28} />,
-    image: "https://images.unsplash.com/photo-1581092918484-8313bda71a0a?auto=format&fit=crop&w=1400&q=80",
+    image: extrusionEngineeringVisual,
     alt: "Industrial process equipment and extrusion engineering environment",
     position: "center",
   },
@@ -89,6 +90,8 @@ export default function DomainGrid() {
                 className={`absolute inset-0 ${
                   domain.id === "factory"
                     ? "bg-[radial-gradient(circle_at_76%_18%,rgba(212,175,55,0.18),transparent_22%),radial-gradient(circle_at_18%_24%,rgba(77,138,221,0.14),transparent_28%),linear-gradient(180deg,rgba(6,11,19,0.08)_0%,rgba(6,11,19,0.12)_30%,rgba(6,11,19,0.4)_58%,rgba(6,11,19,0.82)_100%)]"
+                    : domain.id === "extrusion"
+                      ? "bg-[radial-gradient(circle_at_24%_18%,rgba(212,175,55,0.16),transparent_24%),radial-gradient(circle_at_82%_24%,rgba(72,137,221,0.14),transparent_30%),linear-gradient(180deg,rgba(7,12,20,0.08)_0%,rgba(7,12,20,0.14)_28%,rgba(7,12,20,0.42)_60%,rgba(7,12,20,0.84)_100%)]"
                     : "bg-[radial-gradient(circle_at_top_left,rgba(72,137,221,0.14),transparent_28%),linear-gradient(180deg,rgba(7,12,20,0.1)_0%,rgba(7,12,20,0.16)_30%,rgba(7,12,20,0.48)_62%,rgba(7,12,20,0.84)_100%)]"
                 }`}
               />
