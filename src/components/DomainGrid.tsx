@@ -36,8 +36,8 @@ const domains: {
     title: "Factory Building",
     descriptor: "Layout, flow, and production infrastructure",
     icon: <Factory className="text-industrial-accent" size={28} />,
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80",
-    alt: "Industrial steel platforms and factory construction environment",
+    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=80",
+    alt: "Factory masterplan and plant layout environment",
     position: "center",
   },
   {
@@ -84,7 +84,13 @@ export default function DomainGrid() {
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 style={{ objectPosition: domain.position ?? "center" }}
               />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(72,137,221,0.14),transparent_28%),linear-gradient(180deg,rgba(7,12,20,0.1)_0%,rgba(7,12,20,0.16)_30%,rgba(7,12,20,0.48)_62%,rgba(7,12,20,0.84)_100%)]" />
+              <div
+                className={`absolute inset-0 ${
+                  domain.id === "factory"
+                    ? "bg-[radial-gradient(circle_at_76%_18%,rgba(212,175,55,0.18),transparent_22%),radial-gradient(circle_at_18%_24%,rgba(77,138,221,0.14),transparent_28%),linear-gradient(180deg,rgba(6,11,19,0.08)_0%,rgba(6,11,19,0.12)_30%,rgba(6,11,19,0.4)_58%,rgba(6,11,19,0.82)_100%)]"
+                    : "bg-[radial-gradient(circle_at_top_left,rgba(72,137,221,0.14),transparent_28%),linear-gradient(180deg,rgba(7,12,20,0.1)_0%,rgba(7,12,20,0.16)_30%,rgba(7,12,20,0.48)_62%,rgba(7,12,20,0.84)_100%)]"
+                }`}
+              />
               <div className="absolute inset-x-0 bottom-0 h-[48%] bg-[linear-gradient(180deg,rgba(8,12,18,0)_0%,rgba(8,12,18,0.2)_18%,rgba(8,12,18,0.88)_100%)]" />
               <div
                 className="absolute inset-0 opacity-16"
