@@ -26,7 +26,7 @@ export default function Navbar() {
         </a>
 
         <div className="hidden items-center gap-7 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-slate-300 md:flex">
-          <a href="#domains" className="transition-colors hover:text-industrial-accent">Domains</a>
+          <a href="#domains" className="transition-colors hover:text-industrial-accent">What We Do</a>
           <a href="#intelligence" className="transition-colors hover:text-industrial-accent">ER Labs</a>
           <a href="#expertise" className="transition-colors hover:text-industrial-accent">Expertise</a>
 
@@ -85,7 +85,7 @@ export default function Navbar() {
           className="border-b border-white/8 bg-[#07101b]/98 px-6 py-6 md:hidden"
         >
           <div className="flex flex-col gap-5 text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
-            <a href="#domains" onClick={() => setIsOpen(false)}>Domains</a>
+            <a href="#domains" onClick={() => setIsOpen(false)}>What We Do</a>
             <a href="#intelligence" onClick={() => setIsOpen(false)}>ER Labs</a>
             <a href="#expertise" onClick={() => setIsOpen(false)}>Expertise</a>
           </div>

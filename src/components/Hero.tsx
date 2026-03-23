@@ -48,7 +48,7 @@ export default function Hero() {
                 href="#domains"
                 className="group inline-flex items-center justify-center gap-2 rounded-sm bg-industrial-accent px-7 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-industrial-dark transition-all duration-300 hover:bg-[#ebc96a]"
               >
-                Explore Capabilities
+                Explore What We Do
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a

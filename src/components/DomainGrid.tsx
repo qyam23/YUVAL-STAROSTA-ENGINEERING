@@ -53,12 +53,12 @@ export default function DomainGrid() {
     <section id="domains" className="px-4 pb-18 pt-6 sm:px-8 sm:pb-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 max-w-3xl sm:mb-14">
-          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-industrial-accent">Core Domains</p>
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-industrial-accent">What We Do</p>
           <h2 className="mt-4 text-[2rem] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.8rem]">
-            Four integrated disciplines built for advanced production systems.
+            Four core capabilities, built for real production systems.
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
-            Use the homepage like an engineering map. Each domain anchors a detailed section below with the underlying delivery scope.
+            Each area reflects a critical layer in how modern factories are designed, controlled, and improved.
           </p>
         </div>
 

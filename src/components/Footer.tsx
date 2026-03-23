@@ -21,7 +21,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-6 text-sm font-bold uppercase tracking-widest text-white">Capabilities</h4>
+            <h4 className="mb-6 text-sm font-bold uppercase tracking-widest text-white">What We Do</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               <li><a href="#extrusion" className="transition-colors hover:text-industrial-accent">Extrusion Engineering</a></li>
               <li><a href="#factory" className="transition-colors hover:text-industrial-accent">Factory Building</a></li>

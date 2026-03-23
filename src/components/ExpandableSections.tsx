@@ -69,7 +69,7 @@ export default function ExpandableSections() {
     <section id="capabilities" className="px-4 py-20 sm:px-8 sm:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 max-w-3xl">
-          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-industrial-accent">Detailed Capabilities</p>
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-industrial-accent">What We Do</p>
           <h2 className="mt-4 text-[2.1rem] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.8rem]">
             Engineering depth across the full production environment.
           </h2>
