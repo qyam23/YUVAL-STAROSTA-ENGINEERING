@@ -12,7 +12,6 @@ const domains: {
   descriptor: string;
   icon: ReactElement;
   image: string;
-  alt: string;
   position?: string;
 }[] = [
   {
@@ -21,7 +20,6 @@ const domains: {
     descriptor: "Real-time industrial intelligence",
     icon: <Database className="text-industrial-accent" size={28} />,
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
-    alt: "Operational dashboard and industrial KPI screens",
     position: "center",
   },
   {
@@ -30,7 +28,6 @@ const domains: {
     descriptor: "Twin-screw compounding and process optimization",
     icon: <Settings className="text-industrial-accent" size={28} />,
     image: extrusionEngineeringVisual,
-    alt: "Industrial process equipment and extrusion engineering environment",
     position: "center",
   },
   {
@@ -39,7 +36,6 @@ const domains: {
     descriptor: "Layout, flow, and production infrastructure",
     icon: <Factory className="text-industrial-accent" size={28} />,
     image: factoryBuildingMasterplan,
-    alt: "Factory masterplan and plant layout environment",
     position: "center",
   },
   {
@@ -48,26 +44,25 @@ const domains: {
     descriptor: "PLC, integration, and process logic",
     icon: <Cpu className="text-industrial-accent" size={28} />,
     image: "https://images.unsplash.com/photo-1563770660941-10a6360761a1?auto=format&fit=crop&w=1400&q=80",
-    alt: "Industrial control and automation environment with technician",
     position: "center",
   },
 ];
 
 export default function DomainGrid() {
   return (
-    <section id="domains" className="px-6 pb-20 pt-6 sm:px-8 sm:pb-24">
+    <section id="domains" className="px-4 pb-18 pt-6 sm:px-8 sm:pb-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 max-w-3xl sm:mb-14">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-industrial-accent">Core Domains</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.8rem]">
+          <h2 className="mt-4 text-[2rem] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.8rem]">
             Four integrated disciplines built for advanced production systems.
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+          <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
             Use the homepage like an engineering map. Each domain anchors a detailed section below with the underlying delivery scope.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 md:gap-6 xl:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 md:gap-6 xl:grid-cols-4">
           {domains.map((domain, idx) => (
             <motion.a
               key={domain.id}
@@ -77,14 +72,17 @@ export default function DomainGrid() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08 }}
               whileHover={{ y: -6 }}
-              className="group relative flex aspect-[0.96] min-h-[15.5rem] flex-col justify-end overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#0d1725]/70 p-4 shadow-[0_24px_48px_rgba(0,0,0,0.32)] transition-all duration-300 hover:border-industrial-accent/55 hover:shadow-[0_28px_60px_rgba(0,0,0,0.4)] sm:min-h-[17rem] sm:p-5"
+              className="group relative flex min-w-0 aspect-[0.82] min-h-[18rem] flex-col justify-end overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#0d1725]/70 p-3 shadow-[0_24px_48px_rgba(0,0,0,0.32)] transition-all duration-300 hover:border-industrial-accent/55 hover:shadow-[0_28px_60px_rgba(0,0,0,0.4)] sm:aspect-[0.96] sm:min-h-[17rem] sm:rounded-[1.6rem] sm:p-5"
             >
-              <img
-                src={domain.image}
-                alt={domain.alt}
-                referrerPolicy="no-referrer"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                style={{ objectPosition: domain.position ?? "center" }}
+              <div
+                className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]"
+                style={{
+                  backgroundImage: `url("${domain.image}")`,
+                  backgroundPosition: domain.position ?? "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+                aria-hidden="true"
               />
               <div
                 className={`absolute inset-0 ${
@@ -104,24 +102,24 @@ export default function DomainGrid() {
                 }}
               />
 
-              <div className="relative z-10 flex h-full flex-col justify-between">
+              <div className="relative z-10 flex h-full min-w-0 flex-col justify-between">
                 <div className="flex justify-between">
-                  <div className="rounded-full border border-white/10 bg-[#09111d]/78 p-2.5 shadow-[0_0_24px_rgba(25,63,104,0.16)]">
+                  <div className="rounded-full border border-white/10 bg-[#09111d]/78 p-2 shadow-[0_0_24px_rgba(25,63,104,0.16)] sm:p-2.5">
                     {domain.icon}
                   </div>
-                  <ArrowUpRight size={18} className="text-white/65 transition-colors group-hover:text-industrial-accent" />
+                  <ArrowUpRight size={16} className="text-white/65 transition-colors group-hover:text-industrial-accent sm:size-[18px]" />
                 </div>
-                <div className="pt-12 text-left">
-                  <h3 className="max-w-[12rem] text-lg font-semibold leading-tight text-white sm:text-xl">
+                <div className="min-w-0 pt-10 text-left sm:pt-12">
+                  <h3 className="max-w-full text-[1rem] font-semibold leading-tight text-white break-words sm:max-w-[12rem] sm:text-xl">
                     {domain.title}
                   </h3>
-                  <p className="mt-3 max-w-[15rem] text-xs leading-5 text-slate-100 sm:text-sm sm:leading-6">
+                  <p className="mt-2 max-w-full text-[0.78rem] leading-5 text-slate-100 sm:mt-3 sm:max-w-[15rem] sm:text-sm sm:leading-6">
                     {domain.descriptor}
                   </p>
                 </div>
               </div>
 
-              <div className="pointer-events-none absolute inset-x-5 bottom-5 h-px bg-gradient-to-r from-industrial-accent/0 via-industrial-accent/70 to-industrial-accent/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-x-4 bottom-4 h-px bg-gradient-to-r from-industrial-accent/0 via-industrial-accent/70 to-industrial-accent/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:inset-x-5 sm:bottom-5" />
             </motion.a>
           ))}
         </div>

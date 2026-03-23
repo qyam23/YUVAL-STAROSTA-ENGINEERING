@@ -66,14 +66,14 @@ const sections = [
 
 export default function ExpandableSections() {
   return (
-    <section id="capabilities" className="px-6 py-24 sm:px-8">
+    <section id="capabilities" className="px-4 py-20 sm:px-8 sm:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 max-w-3xl">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-industrial-accent">Detailed Capabilities</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.8rem]">
+          <h2 className="mt-4 text-[2.1rem] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.8rem]">
             Engineering depth across the full production environment.
           </h2>
-          <p className="mt-4 text-sm leading-7 text-slate-400 sm:text-base">
+          <p className="mt-4 text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
             Each discipline below is designed to connect strategy, equipment, and plant execution into one coherent industrial system.
           </p>
         </div>

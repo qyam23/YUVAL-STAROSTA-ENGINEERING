@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-6 pb-[4.5rem] pt-32 sm:pb-[5.5rem] sm:pt-36 lg:min-h-[100svh] lg:px-8 lg:pt-28">
+    <section id="top" className="relative overflow-hidden px-4 pb-[4.5rem] pt-28 sm:px-6 sm:pb-[5.5rem] sm:pt-36 lg:min-h-[100svh] lg:px-8 lg:pt-28">
       <div
         className="absolute inset-0 z-0 opacity-30"
         style={{
@@ -35,11 +35,11 @@ export default function Hero() {
               Precision Engineering for Advanced Manufacturing
             </span>
 
-            <h1 className="max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.04em] text-white sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+            <h1 className="max-w-4xl text-[2.9rem] font-semibold leading-[0.95] tracking-[-0.04em] text-white sm:text-6xl md:text-7xl lg:text-[5.5rem]">
               Engineering Industrial Systems That Perform
             </h1>
 
-            <p className="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+            <p className="mt-6 max-w-2xl text-[0.98rem] leading-7 text-slate-300 sm:mt-7 sm:text-lg sm:leading-8">
               Extrusion engineering, factory systems, automation, and industrial intelligence built around real production environments.
             </p>
 
