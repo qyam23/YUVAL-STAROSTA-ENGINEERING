@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import ExtrusionCompoundingVisual from "./ExtrusionCompoundingVisual";
 
 const sections = [
   {
@@ -124,12 +125,16 @@ export default function ExpandableSections() {
               </div>
 
               <div className="relative min-h-[18rem] lg:min-h-full">
-                <img
-                  src={section.image}
-                  alt={section.title}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
+                {section.id === "extrusion" ? (
+                  <ExtrusionCompoundingVisual />
+                ) : (
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                )}
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,11,19,0.15),rgba(6,11,19,0.48)_52%,rgba(6,11,19,0.64)_100%)] lg:bg-[linear-gradient(90deg,rgba(6,11,19,0.08),rgba(6,11,19,0.22)_28%,rgba(6,11,19,0.58)_100%)]" />
                 <div
                   className="absolute inset-0 opacity-35"
