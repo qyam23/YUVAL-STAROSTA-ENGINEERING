@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Factory, Cpu, Settings, Database, ArrowUpRight } from "lucide-react";
 import factoryBuildingMasterplan from "../assets/factory-building-masterplan.png";
 import extrusionEngineeringVisual from "../assets/extrusion-engineering-visual.png";
+import automationControlCard from "../assets/automation-control-card.png";
 
 type DomainId = "intelligence" | "extrusion" | "factory" | "automation";
 
@@ -43,7 +44,7 @@ const domains: {
     title: "Automation & Control",
     descriptor: "PLC, integration, and process logic",
     icon: <Cpu className="text-industrial-accent" size={28} />,
-    image: "https://images.unsplash.com/photo-1563770660941-10a6360761a1?auto=format&fit=crop&w=1400&q=80",
+    image: automationControlCard,
     position: "center",
   },
 ];
@@ -62,7 +63,7 @@ export default function DomainGrid() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 md:gap-6 xl:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-5 md:gap-6 xl:grid-cols-4">
           {domains.map((domain, idx) => (
             <motion.a
               key={domain.id}
@@ -72,7 +73,7 @@ export default function DomainGrid() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08 }}
               whileHover={{ y: -6 }}
-              className="group relative flex min-w-0 aspect-[0.82] min-h-[18rem] flex-col justify-end overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#0d1725]/70 p-3 shadow-[0_24px_48px_rgba(0,0,0,0.32)] transition-all duration-300 hover:border-industrial-accent/55 hover:shadow-[0_28px_60px_rgba(0,0,0,0.4)] sm:aspect-[0.96] sm:min-h-[17rem] sm:rounded-[1.6rem] sm:p-5"
+              className="group relative flex min-w-0 h-[17.25rem] flex-col justify-end overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#0d1725]/70 p-3 shadow-[0_24px_48px_rgba(0,0,0,0.32)] transition-all duration-300 hover:border-industrial-accent/55 hover:shadow-[0_28px_60px_rgba(0,0,0,0.4)] sm:aspect-[0.96] sm:min-h-[17rem] sm:h-auto sm:rounded-[1.6rem] sm:p-5"
             >
               <div
                 className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]"
@@ -90,6 +91,8 @@ export default function DomainGrid() {
                     ? "bg-[radial-gradient(circle_at_76%_18%,rgba(212,175,55,0.18),transparent_22%),radial-gradient(circle_at_18%_24%,rgba(77,138,221,0.14),transparent_28%),linear-gradient(180deg,rgba(6,11,19,0.08)_0%,rgba(6,11,19,0.12)_30%,rgba(6,11,19,0.4)_58%,rgba(6,11,19,0.82)_100%)]"
                     : domain.id === "extrusion"
                       ? "bg-[radial-gradient(circle_at_24%_18%,rgba(212,175,55,0.16),transparent_24%),radial-gradient(circle_at_82%_24%,rgba(72,137,221,0.14),transparent_30%),linear-gradient(180deg,rgba(7,12,20,0.08)_0%,rgba(7,12,20,0.14)_28%,rgba(7,12,20,0.42)_60%,rgba(7,12,20,0.84)_100%)]"
+                    : domain.id === "automation"
+                      ? "bg-[radial-gradient(circle_at_78%_18%,rgba(212,175,55,0.12),transparent_22%),radial-gradient(circle_at_16%_24%,rgba(75,136,217,0.18),transparent_26%),linear-gradient(180deg,rgba(7,12,20,0.08)_0%,rgba(7,12,20,0.16)_28%,rgba(7,12,20,0.42)_58%,rgba(7,12,20,0.82)_100%)]"
                     : "bg-[radial-gradient(circle_at_top_left,rgba(72,137,221,0.14),transparent_28%),linear-gradient(180deg,rgba(7,12,20,0.1)_0%,rgba(7,12,20,0.16)_30%,rgba(7,12,20,0.48)_62%,rgba(7,12,20,0.84)_100%)]"
                 }`}
               />
