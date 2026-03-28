@@ -1,12 +1,14 @@
 import { motion } from "motion/react";
-import { Menu, X, LogIn, LogOut, User as UserIcon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useAuth } from "../context/FirebaseContext";
 import NavbarBrand from "./NavbarBrand";
 
-export default function Navbar() {
+type NavbarProps = {
+  onContactClick: () => void;
+};
+
+export default function Navbar({ onContactClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, signIn, logout, loading } = useAuth();
 
   return (
     <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/8 bg-[#07101b]/88 backdrop-blur-xl">
@@ -20,42 +22,14 @@ export default function Navbar() {
           <a href="#intelligence" className="transition-colors hover:text-industrial-accent">ER Labs</a>
           <a href="#expertise" className="transition-colors hover:text-industrial-accent">Expertise</a>
 
-          <div className="ml-2 flex items-center gap-4 border-l border-white/10 pl-5">
-            {!loading && (
-              user ? (
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-2">
-                    {user.photoURL ? (
-                      <img src={user.photoURL} alt="" className="h-6 w-6 rounded-full border border-industrial-accent/50" />
-                    ) : (
-                      <UserIcon size={16} className="text-industrial-accent" />
-                    )}
-                    <span className="max-w-[80px] truncate text-[10px] text-slate-400">{user.displayName || user.email}</span>
-                  </div>
-                  <button
-                    onClick={logout}
-                    className="text-white/60 transition-colors hover:text-industrial-accent"
-                    title="Sign Out"
-                  >
-                    <LogOut size={18} />
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={signIn}
-                  className="flex items-center gap-2 text-white/70 transition-colors hover:text-industrial-accent"
-                >
-                  <LogIn size={18} />
-                  <span>Sign In</span>
-                </button>
-              )
-            )}
-            <a
-              href="#contact"
+          <div className="ml-3 flex items-center border-l border-white/10 pl-5">
+            <button
+              type="button"
+              onClick={onContactClick}
               className="rounded-sm border border-industrial-accent/70 px-5 py-2 text-industrial-accent transition-all duration-300 hover:bg-industrial-accent hover:text-industrial-dark"
             >
-              Start a Project
-            </a>
+              Contact us
+            </button>
           </div>
         </div>
 
@@ -81,30 +55,16 @@ export default function Navbar() {
           </div>
 
           <div className="mt-6 flex flex-col gap-6 border-t border-white/10 pt-6">
-            {!loading && (
-              user ? (
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    {user.photoURL && <img src={user.photoURL} alt="" className="h-8 w-8 rounded-full" />}
-                    <span className="text-slate-400">{user.displayName || user.email}</span>
-                  </div>
-                  <button onClick={logout} className="flex items-center gap-2 text-industrial-accent">
-                    <LogOut size={18} /> Sign Out
-                  </button>
-                </div>
-              ) : (
-                <button onClick={signIn} className="flex items-center gap-2 text-industrial-accent">
-                  <LogIn size={18} /> Sign In
-                </button>
-              )
-            )}
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
+            <button
+              type="button"
+              onClick={() => {
+                setIsOpen(false);
+                onContactClick();
+              }}
               className="w-full border border-industrial-accent/70 px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.22em] text-industrial-accent"
             >
-              Start a Project
-            </a>
+              Contact us
+            </button>
           </div>
         </motion.div>
       )}

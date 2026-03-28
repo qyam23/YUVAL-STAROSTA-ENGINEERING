@@ -1,7 +1,11 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 
-export default function Hero() {
+type HeroProps = {
+  onContactClick: () => void;
+};
+
+export default function Hero({ onContactClick }: HeroProps) {
   return (
     <section id="top" className="relative overflow-hidden px-4 pb-[4.5rem] pt-28 sm:px-6 sm:pb-[5.5rem] sm:pt-36 lg:min-h-[100svh] lg:px-8 lg:pt-28">
       <div
@@ -51,12 +55,13 @@ export default function Hero() {
                 Explore What We Do
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <a
-                href="#contact"
+              <button
+                type="button"
+                onClick={onContactClick}
                 className="inline-flex items-center justify-center rounded-sm border border-white/15 px-7 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition-all duration-300 hover:border-industrial-accent/70 hover:text-industrial-accent"
               >
-                Talk Through Your Project
-              </a>
+                Contact us
+              </button>
             </div>
           </div>
 
