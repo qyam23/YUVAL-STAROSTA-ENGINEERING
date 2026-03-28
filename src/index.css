@@ -106,6 +106,64 @@
     animation: navbar-gear-spin-right 11s linear infinite;
   }
 
+  .footer-brand {
+    gap: 0.95rem;
+    width: max-content;
+    max-width: 100%;
+  }
+
+  .footer-brand-row {
+    align-items: start;
+  }
+
+  .footer-brand .navbar-brand__icon {
+    height: 3.2rem;
+    width: 3.2rem;
+  }
+
+  .footer-brand .navbar-brand__text {
+    font-size: clamp(0.82rem, 0.82vw, 0.98rem);
+    gap: 0.38rem;
+    letter-spacing: 0.066em;
+  }
+
+  .footer-brand .navbar-brand__text-separator {
+    width: 0.3em;
+    min-width: 0.3em;
+    flex-basis: 0.3em;
+  }
+
+  .footer-share-panel {
+    min-height: 11.4rem;
+  }
+
+  .footer-share-trigger,
+  .footer-share-panel {
+    margin-left: auto;
+    max-width: 27rem;
+  }
+
+  .footer-share-trigger {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .footer-share-trigger__icon {
+    animation: footer-share-icon 2.8s ease-in-out infinite;
+  }
+
+  .footer-share-trigger__pulse {
+    position: absolute;
+    right: 1.2rem;
+    top: 1.1rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.22), rgba(78, 176, 255, 0.08) 58%, transparent 74%);
+    filter: blur(4px);
+    opacity: 0.9;
+    animation: footer-share-pulse 3.2s ease-in-out infinite;
+  }
+
   @media (max-width: 1100px) {
     .navbar-brand__text {
       font-size: clamp(0.96rem, 1.08vw, 1.24rem);
@@ -125,6 +183,21 @@
       width: 0.28em;
       min-width: 0.28em;
       flex-basis: 0.28em;
+    }
+
+    .footer-brand .navbar-brand__icon {
+      height: 2.85rem;
+      width: 2.85rem;
+    }
+
+    .footer-brand .navbar-brand__text {
+      font-size: 0.76rem;
+      gap: 0.28rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-share-trigger {
+      min-height: 9.5rem;
     }
   }
 
@@ -1018,6 +1091,32 @@
   }
 }
 
+@keyframes footer-share-pulse {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.52;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+}
+
+@keyframes footer-share-icon {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.82;
+  }
+
+  50% {
+    transform: translateX(4px);
+    opacity: 1;
+  }
+}
+
 @keyframes automation-flow-shimmer {
   0% {
     stroke-dashoffset: 0;
@@ -1502,7 +1601,9 @@
   .extrusion-visual__drop,
   .extrusion-flow,
   .extrusion-dots,
-  .extrusion-node {
+  .extrusion-node,
+  .footer-share-trigger__icon,
+  .footer-share-trigger__pulse {
     animation: none;
   }
 }
