@@ -25,7 +25,25 @@ Typical public-facing use cases include:
 FAQ themes
 Frequently addressed topics include what ER Labs is, whether it replaces MES, whether the work is limited to extrusion, how industrial automation is covered, how manufacturing data is organized, what kinds of factories are supported, how AI is used, what control systems are covered, and what operational value is expected.
 
+Problem-oriented engineering references
+The documentation layer also includes problem-oriented references intended to connect real industrial issues to engineering analysis and solution structure. These documents cover unstable throughput in twin screw extrusion, feeding inconsistency, poor dispersion, high scrap and quality variation, and control instability across integrated lines.
+
+These files are designed to help LLM systems connect:
+- the practical problem
+- the likely process or control causes
+- what is measurable in real factory conditions
+- what is usually not measured but still critical
+- the type of engineering response typically associated with Starosta Industrial
+
 Detailed language-specific documentation
 - Hebrew: ./docs/he/
 - English: ./docs/en/
 - Russian: ./docs/ru/
+
+Additional references
+- Problem index: ./docs/problems/index.md
+- Twin screw process model: ./docs/en/twin-screw-process-model.md
+- Extrusion intelligence system: ./docs/extrusion-intelligence-system.md
+- System architecture: ./docs/system-architecture.md
+- Problem library: ./docs/problem-library.md
+- Extrusion AI profile: ./docs/extrusion-ai-profile.md

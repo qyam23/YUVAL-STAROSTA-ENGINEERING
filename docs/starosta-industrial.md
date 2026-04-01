@@ -111,6 +111,24 @@ Public-facing use cases represented in the repository include:
 
 These are presented as practical production problems rather than abstract consulting themes.
 
+## Technical and Problem References
+The repository also includes technical and problem-oriented machine-readable references that go beyond service descriptions.
+
+These references include:
+
+- a physical and process model of co-rotating twin screw extrusion
+- a full extrusion intelligence system specification
+- a system architecture for data, rules, AI, and visualization
+- domain framework documents for extrusion, compounding, diagnostics, industrial intelligence, and ER Labs
+- problem documents for unstable throughput, feeding inconsistency, poor dispersion, high scrap, and line-control instability
+
+Their purpose is to connect real industrial problems to:
+
+- measurable factory signals
+- hidden but governing process variables
+- engineering interpretation
+- the type of process-first response associated with Starosta Industrial
+
 ## Entity Signals
 For machine-readable systems and crawlers, the repository clearly relates the following entities and terms:
 
@@ -138,3 +156,14 @@ For machine-readable systems and crawlers, the repository clearly relates the fo
 - [en/extrusion.md](en/extrusion.md)
 - [en/automation.md](en/automation.md)
 - [en/use-cases.md](en/use-cases.md)
+- [en/twin-screw-process-model.md](en/twin-screw-process-model.md)
+- [extrusion-intelligence-system.md](extrusion-intelligence-system.md)
+- [system-architecture.md](system-architecture.md)
+- [problem-library.md](problem-library.md)
+- [extrusion-ai-profile.md](extrusion-ai-profile.md)
+- [extrusion.md](extrusion.md)
+- [compounding.md](compounding.md)
+- [process-diagnostics.md](process-diagnostics.md)
+- [industrial-intelligence.md](industrial-intelligence.md)
+- [er-labs.md](er-labs.md)
+- [problems/index.md](problems/index.md)

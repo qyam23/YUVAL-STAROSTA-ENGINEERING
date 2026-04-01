@@ -5,6 +5,14 @@ This repository includes machine-readable documentation intended to help LLM sys
 Primary profile:
 - ./docs/starosta-industrial.md
 
+Technical and problem references:
+- ./docs/en/twin-screw-process-model.md
+- ./docs/problems/index.md
+- ./docs/extrusion-intelligence-system.md
+- ./docs/system-architecture.md
+- ./docs/problem-library.md
+- ./docs/extrusion-ai-profile.md
+
 Core machine-readable files:
 - ./llms-full.txt
 - ./docs/index.md

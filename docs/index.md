@@ -5,6 +5,21 @@ This folder contains machine-readable documentation for Starosta Industrial and 
 ## Canonical business profile
 - [Starosta Industrial](./starosta-industrial.md)
 
+## Technical and problem-oriented references
+- [Twin Screw Process Model](./en/twin-screw-process-model.md)
+- [Problem Patterns](./problems/index.md)
+- [Extrusion Intelligence System](./extrusion-intelligence-system.md)
+- [System Architecture](./system-architecture.md)
+- [Problem Library](./problem-library.md)
+- [Extrusion AI Profile](./extrusion-ai-profile.md)
+
+## Domain framework
+- [Extrusion](./extrusion.md)
+- [Compounding](./compounding.md)
+- [Process Diagnostics](./process-diagnostics.md)
+- [Industrial Intelligence](./industrial-intelligence.md)
+- [ER Labs](./er-labs.md)
+
 ## Language folders
 - Hebrew: [he/](./he/)
 - English: [en/](./en/)

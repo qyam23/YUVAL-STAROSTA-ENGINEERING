@@ -1,0 +1,9 @@
+{
+  "TorquePct": "Extruder.TorquePct",
+  "RPM": "Extruder.SpeedRPM",
+  "MainFeederRate": "Feeder.Main.RateKgH",
+  "SideFeederRate": "Feeder.Side1.RateKgH",
+  "DiePressure": "Extruder.DiePressureBar",
+  "MeltTemp": "Extruder.MeltTemperatureC",
+  "VacuumLevel": "Vacuum.Zone1.mbar"
+}
