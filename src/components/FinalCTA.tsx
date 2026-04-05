@@ -6,7 +6,7 @@ type FinalCTAProps = {
 
 export default function FinalCTA({ onContactClick }: FinalCTAProps) {
   return (
-    <section id="contact" className="relative overflow-hidden px-6 py-28 sm:px-8 sm:py-32">
+    <section id="contact" data-analytics-section="contact" className="relative overflow-hidden px-6 py-28 sm:px-8 sm:py-32">
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.1),transparent_36%),linear-gradient(180deg,rgba(10,17,29,0.85),rgba(5,9,16,1))]" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
@@ -26,6 +26,8 @@ export default function FinalCTA({ onContactClick }: FinalCTAProps) {
           <button
             type="button"
             onClick={onContactClick}
+            data-analytics="contact-cta"
+            data-analytics-section-name="final_cta"
             className="inline-flex rounded-sm bg-industrial-accent px-10 py-4 text-sm font-semibold uppercase tracking-[0.24em] text-industrial-dark transition-all duration-300 hover:bg-white"
           >
             Contact us

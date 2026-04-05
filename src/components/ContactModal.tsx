@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
 import { submitContactForm } from "../services/contactForm";
+import { trackEvent } from "../services/analytics";
 
 type ContactModalProps = {
   isOpen: boolean;
@@ -30,6 +31,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [feedback, setFeedback] = useState("");
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -56,6 +58,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       setErrors({});
       setStatus("idle");
       setFeedback("");
+      setHasStarted(false);
     }
   }, [isOpen]);
 
@@ -86,6 +89,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   };
 
   const updateField = (field: keyof FormState, value: string) => {
+    if (!hasStarted) {
+      setHasStarted(true);
+      trackEvent("form_start", {
+        section_name: "contact_modal",
+        destination: "contact_form",
+      });
+    }
+
     setForm((current) => ({ ...current, [field]: value }));
     setErrors((current) => {
       if (!current[field]) return current;
@@ -118,6 +129,11 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
       setStatus("success");
       setFeedback("Your message has been sent. We will get back to you soon.");
+      trackEvent("generate_lead", {
+        section_name: "contact_modal",
+        service_name: "general_contact",
+        destination: "starostaindustrial.com",
+      });
       setForm(initialState);
     } catch (error) {
       setStatus("error");

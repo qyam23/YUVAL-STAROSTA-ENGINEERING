@@ -51,7 +51,7 @@ const domains: {
 
 export default function DomainGrid() {
   return (
-    <section id="domains" className="px-4 pb-18 pt-6 sm:px-8 sm:pb-24">
+    <section id="domains" data-analytics-section="domains" className="px-4 pb-18 pt-6 sm:px-8 sm:pb-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 max-w-3xl sm:mb-14">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-industrial-accent">What We Do</p>
@@ -68,6 +68,9 @@ export default function DomainGrid() {
             <motion.a
               key={domain.id}
               href={`#${domain.id}`}
+              data-analytics="content-link"
+              data-analytics-section-name="domains"
+              data-analytics-service-name={domain.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

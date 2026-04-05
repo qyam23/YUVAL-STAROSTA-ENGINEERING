@@ -7,7 +7,7 @@ type HeroProps = {
 
 export default function Hero({ onContactClick }: HeroProps) {
   return (
-    <section id="top" className="relative overflow-hidden px-4 pb-[4.5rem] pt-28 sm:px-6 sm:pb-[5.5rem] sm:pt-36 lg:min-h-[100svh] lg:px-8 lg:pt-28">
+    <section id="top" data-analytics-section="hero" className="relative overflow-hidden px-4 pb-[4.5rem] pt-28 sm:px-6 sm:pb-[5.5rem] sm:pt-36 lg:min-h-[100svh] lg:px-8 lg:pt-28">
       <div
         className="absolute inset-0 z-0 opacity-30"
         style={{
@@ -50,6 +50,8 @@ export default function Hero({ onContactClick }: HeroProps) {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#domains"
+                data-analytics="content-link"
+                data-analytics-section-name="hero"
                 className="group inline-flex items-center justify-center gap-2 rounded-sm bg-industrial-accent px-7 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-industrial-dark transition-all duration-300 hover:bg-[#ebc96a]"
               >
                 Explore What We Do
@@ -58,6 +60,8 @@ export default function Hero({ onContactClick }: HeroProps) {
               <button
                 type="button"
                 onClick={onContactClick}
+                data-analytics="contact-cta"
+                data-analytics-section-name="hero"
                 className="inline-flex items-center justify-center rounded-sm border border-white/15 px-7 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition-all duration-300 hover:border-industrial-accent/70 hover:text-industrial-accent"
               >
                 Contact us
@@ -65,13 +69,13 @@ export default function Hero({ onContactClick }: HeroProps) {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-slate-400">
-              <a href="/llms.txt" className="transition-colors hover:text-industrial-accent">
+              <a href="/llms.txt" className="transition-colors hover:text-industrial-accent" data-analytics="content-link" data-analytics-section-name="hero" data-analytics-service-name="machine_readable_docs">
                 llms.txt
               </a>
-              <a href="/docs/starosta-industrial.md" className="transition-colors hover:text-industrial-accent">
+              <a href="/docs/starosta-industrial.md" className="transition-colors hover:text-industrial-accent" data-analytics="content-link" data-analytics-section-name="hero" data-analytics-service-name="machine_readable_profile">
                 Machine-readable profile
               </a>
-              <a href="/privacy-policy.html" className="transition-colors hover:text-industrial-accent">
+              <a href="/privacy-policy.html" className="transition-colors hover:text-industrial-accent" data-analytics="content-link" data-analytics-section-name="hero">
                 Privacy policy
               </a>
             </div>

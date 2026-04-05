@@ -18,20 +18,22 @@ export default function Navbar({ onContactClick, isPolicyPage = false }: NavbarP
   return (
     <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/8 bg-[#07101b]/88 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6">
-        <a href={homeHref} className="flex min-w-0 items-center pr-4 lg:pr-6">
+        <a href={homeHref} className="flex min-w-0 items-center pr-4 lg:pr-6" data-analytics="nav-link" data-analytics-section-name="home">
           <NavbarBrand />
         </a>
 
         <div className="hidden items-center gap-6 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-slate-300 lg:gap-7 md:flex">
-          <a href={domainsHref} className="transition-colors hover:text-industrial-accent">What We Do</a>
-          <a href={intelligenceHref} className="transition-colors hover:text-industrial-accent">ER Labs</a>
-          <a href={expertiseHref} className="transition-colors hover:text-industrial-accent">Expertise</a>
+          <a href={domainsHref} className="transition-colors hover:text-industrial-accent" data-analytics="nav-link" data-analytics-section-name="domains">What We Do</a>
+          <a href={intelligenceHref} className="transition-colors hover:text-industrial-accent" data-analytics="nav-link" data-analytics-section-name="intelligence">ER Labs</a>
+          <a href={expertiseHref} className="transition-colors hover:text-industrial-accent" data-analytics="nav-link" data-analytics-section-name="expertise">Expertise</a>
 
           <div className="ml-3 flex items-center gap-3 border-l border-white/10 pl-5">
             <HeaderShareButton />
             <button
               type="button"
               onClick={onContactClick}
+              data-analytics="contact-cta"
+              data-analytics-section-name="header"
               className="rounded-sm border border-industrial-accent/70 px-5 py-2 text-industrial-accent transition-all duration-300 hover:bg-industrial-accent hover:text-industrial-dark"
             >
               Contact us
@@ -55,9 +57,9 @@ export default function Navbar({ onContactClick, isPolicyPage = false }: NavbarP
           className="border-b border-white/8 bg-[#07101b]/98 px-6 py-6 md:hidden"
         >
           <div className="flex flex-col gap-5 text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
-            <a href={domainsHref} onClick={() => setIsOpen(false)}>What We Do</a>
-            <a href={intelligenceHref} onClick={() => setIsOpen(false)}>ER Labs</a>
-            <a href={expertiseHref} onClick={() => setIsOpen(false)}>Expertise</a>
+            <a href={domainsHref} onClick={() => setIsOpen(false)} data-analytics="nav-link" data-analytics-section-name="domains">What We Do</a>
+            <a href={intelligenceHref} onClick={() => setIsOpen(false)} data-analytics="nav-link" data-analytics-section-name="intelligence">ER Labs</a>
+            <a href={expertiseHref} onClick={() => setIsOpen(false)} data-analytics="nav-link" data-analytics-section-name="expertise">Expertise</a>
           </div>
 
           <div className="mt-6 flex flex-col gap-6 border-t border-white/10 pt-6">
@@ -68,6 +70,8 @@ export default function Navbar({ onContactClick, isPolicyPage = false }: NavbarP
                 setIsOpen(false);
                 onContactClick();
               }}
+              data-analytics="contact-cta"
+              data-analytics-section-name="header_mobile"
               className="w-full border border-industrial-accent/70 px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.22em] text-industrial-accent"
             >
               Contact us
@@ -130,6 +134,9 @@ function HeaderShareButton({ mobile = false }: HeaderShareButtonProps) {
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
+        data-analytics="cta_click"
+        data-analytics-label="Sher"
+        data-analytics-section-name="header_share"
         className={
           mobile
             ? "header-share-button flex w-full items-center justify-center gap-2 rounded-sm border border-white/14 bg-white/[0.03] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.22em] text-slate-200 transition-all duration-300 hover:border-industrial-accent/60 hover:text-industrial-accent"
@@ -154,6 +161,8 @@ function HeaderShareButton({ mobile = false }: HeaderShareButtonProps) {
             href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
             target="_blank"
             rel="noreferrer"
+            data-analytics="footer-link"
+            data-analytics-section-name="header_share"
             className="flex items-center justify-between rounded-[0.8rem] border border-white/8 px-3 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-slate-200 transition-colors hover:border-industrial-accent/50 hover:text-industrial-accent"
           >
             Facebook
@@ -163,6 +172,8 @@ function HeaderShareButton({ mobile = false }: HeaderShareButtonProps) {
             href={`https://wa.me/?text=${encodedUrl}`}
             target="_blank"
             rel="noreferrer"
+            data-analytics="footer-link"
+            data-analytics-section-name="header_share"
             className="flex items-center justify-between rounded-[0.8rem] border border-white/8 px-3 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-slate-200 transition-colors hover:border-industrial-accent/50 hover:text-industrial-accent"
           >
             WhatsApp
@@ -172,6 +183,8 @@ function HeaderShareButton({ mobile = false }: HeaderShareButtonProps) {
             href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
             target="_blank"
             rel="noreferrer"
+            data-analytics="footer-link"
+            data-analytics-section-name="header_share"
             className="flex items-center justify-between rounded-[0.8rem] border border-white/8 px-3 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-slate-200 transition-colors hover:border-industrial-accent/50 hover:text-industrial-accent"
           >
             LinkedIn
@@ -179,6 +192,8 @@ function HeaderShareButton({ mobile = false }: HeaderShareButtonProps) {
           </a>
           <a
             href={`mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent(`${shareUrl}\n\nIndustrial engineering, integration, and intelligence for advanced manufacturing.`)}`}
+            data-analytics="footer-link"
+            data-analytics-section-name="header_share"
             className="flex items-center justify-between rounded-[0.8rem] border border-white/8 px-3 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.15em] text-slate-200 transition-colors hover:border-industrial-accent/50 hover:text-industrial-accent"
           >
             Email

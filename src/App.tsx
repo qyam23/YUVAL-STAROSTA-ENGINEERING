@@ -18,6 +18,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { FirebaseProvider } from "./context/FirebaseContext";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useEffect, useMemo, useState } from "react";
+import { initAnalytics } from "./services/analytics";
 
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -29,6 +30,8 @@ export default function App() {
   useEffect(() => {
     document.title = isPrivacyPage ? "Privacy Policy | STAROSTA INDUSTRIAL" : "STAROSTA INDUSTRIAL";
   }, [isPrivacyPage]);
+
+  useEffect(() => initAnalytics(), []);
 
   return (
     <ErrorBoundary>

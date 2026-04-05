@@ -29,10 +29,10 @@ export default function Footer({ isPolicyPage = false }: FooterProps) {
           <div>
             <h4 className="mb-6 text-sm font-bold uppercase tracking-widest text-white">What We Do</h4>
             <ul className="space-y-4 text-sm text-slate-400">
-              <li><a href={extrusionHref} className="transition-colors hover:text-industrial-accent">Extrusion Engineering</a></li>
-              <li><a href={factoryHref} className="transition-colors hover:text-industrial-accent">Factory Building</a></li>
-              <li><a href={automationHref} className="transition-colors hover:text-industrial-accent">Automation &amp; Control</a></li>
-              <li><a href={intelligenceHref} className="transition-colors hover:text-industrial-accent">ER Labs</a></li>
+              <li><a href={extrusionHref} className="transition-colors hover:text-industrial-accent" data-analytics="footer-link" data-analytics-section-name="extrusion">Extrusion Engineering</a></li>
+              <li><a href={factoryHref} className="transition-colors hover:text-industrial-accent" data-analytics="footer-link" data-analytics-section-name="factory">Factory Building</a></li>
+              <li><a href={automationHref} className="transition-colors hover:text-industrial-accent" data-analytics="footer-link" data-analytics-section-name="automation">Automation &amp; Control</a></li>
+              <li><a href={intelligenceHref} className="transition-colors hover:text-industrial-accent" data-analytics="footer-link" data-analytics-section-name="intelligence">ER Labs</a></li>
             </ul>
           </div>
 
@@ -40,7 +40,12 @@ export default function Footer({ isPolicyPage = false }: FooterProps) {
             <h4 className="mb-6 text-sm font-bold uppercase tracking-widest text-white">Contact</h4>
             <ul className="space-y-4 text-sm text-slate-400">
               <li>
-                <a href="mailto:starosta.ing@gmail.com" className="transition-colors hover:text-industrial-accent">
+                <a
+                  href="mailto:starosta.ing@gmail.com"
+                  className="transition-colors hover:text-industrial-accent"
+                  data-analytics="footer-link"
+                  data-analytics-section-name="contact"
+                >
                   starosta.ing@gmail.com
                 </a>
               </li>
@@ -52,9 +57,9 @@ export default function Footer({ isPolicyPage = false }: FooterProps) {
           <div>
             <h4 className="mb-6 text-sm font-bold uppercase tracking-widest text-white">Reference Files</h4>
             <ul className="space-y-4 text-sm text-slate-400">
-              <li><a href="/llms.txt" className="transition-colors hover:text-industrial-accent">llms.txt</a></li>
-              <li><a href="/docs/index.md" className="transition-colors hover:text-industrial-accent">Documentation index</a></li>
-              <li><a href="/docs/starosta-industrial.md" className="transition-colors hover:text-industrial-accent">Starosta Industrial profile</a></li>
+              <li><a href="/llms.txt" className="transition-colors hover:text-industrial-accent" data-analytics="footer-link" data-analytics-section-name="reference_files">llms.txt</a></li>
+              <li><a href="/docs/index.md" className="transition-colors hover:text-industrial-accent" data-analytics="footer-link" data-analytics-section-name="reference_files">Documentation index</a></li>
+              <li><a href="/docs/starosta-industrial.md" className="transition-colors hover:text-industrial-accent" data-analytics="footer-link" data-analytics-section-name="reference_files">Starosta Industrial profile</a></li>
             </ul>
           </div>
         </div>
@@ -62,13 +67,13 @@ export default function Footer({ isPolicyPage = false }: FooterProps) {
         <div className="flex flex-col items-center justify-between border-t border-white/8 pt-12 text-xs uppercase tracking-widest text-slate-500 md:flex-row">
           <p>&copy; 2026 Starosta Industrial. All rights reserved.</p>
           <div className="mt-6 flex gap-8 md:mt-0">
-            <a href="/privacy-policy.html" className="transition-colors hover:text-white">Privacy Policy</a>
-            <a href="#" className="transition-colors hover:text-white">Terms of Service</a>
+            <a href="/privacy-policy.html" className="transition-colors hover:text-white" data-analytics="footer-link" data-analytics-section-name="legal">Privacy Policy</a>
+            <a href="#" className="transition-colors hover:text-white" data-analytics="footer-link" data-analytics-section-name="legal">Terms of Service</a>
           </div>
         </div>
         <div className="sr-only">
-          <a href="/llms.txt">Machine-readable index</a>
-          <a href="/docs/starosta-industrial.md">Starosta Industrial machine-readable profile</a>
+          <a href="/llms.txt" data-analytics="footer-link" data-analytics-section-name="machine_readable">Machine-readable index</a>
+          <a href="/docs/starosta-industrial.md" data-analytics="footer-link" data-analytics-section-name="machine_readable">Starosta Industrial machine-readable profile</a>
         </div>
       </div>
     </footer>
@@ -122,6 +127,9 @@ function SharePanel() {
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
+        data-analytics="cta_click"
+        data-analytics-label="Sher"
+        data-analytics-section-name="footer_share"
         className="footer-share-trigger group relative flex min-h-[11.5rem] w-full flex-col items-start justify-between overflow-hidden rounded-[1.25rem] border border-industrial-accent/28 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.015))] p-5 text-left transition-all duration-300 hover:border-industrial-accent/60 hover:bg-[linear-gradient(180deg,rgba(212,175,55,0.08),rgba(255,255,255,0.03))]"
         aria-expanded={isOpen}
         aria-label="Share Starosta Industrial"
@@ -157,6 +165,8 @@ function SharePanel() {
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
               target="_blank"
               rel="noreferrer"
+              data-analytics="footer-link"
+              data-analytics-section-name="footer_share"
               className="flex items-center justify-between rounded-[0.85rem] border border-white/8 px-3 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition-colors hover:border-industrial-accent/50 hover:text-industrial-accent"
             >
               Facebook
@@ -166,6 +176,8 @@ function SharePanel() {
               href={`https://wa.me/?text=${encodedUrl}`}
               target="_blank"
               rel="noreferrer"
+              data-analytics="footer-link"
+              data-analytics-section-name="footer_share"
               className="flex items-center justify-between rounded-[0.85rem] border border-white/8 px-3 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition-colors hover:border-industrial-accent/50 hover:text-industrial-accent"
             >
               WhatsApp
@@ -175,6 +187,8 @@ function SharePanel() {
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
               target="_blank"
               rel="noreferrer"
+              data-analytics="footer-link"
+              data-analytics-section-name="footer_share"
               className="flex items-center justify-between rounded-[0.85rem] border border-white/8 px-3 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition-colors hover:border-industrial-accent/50 hover:text-industrial-accent"
             >
               LinkedIn
@@ -182,6 +196,8 @@ function SharePanel() {
             </a>
             <a
               href={`mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent(`${shareUrl}\n\nIndustrial engineering, integration, and intelligence for advanced manufacturing.`)}`}
+              data-analytics="footer-link"
+              data-analytics-section-name="footer_share"
               className="flex items-center justify-between rounded-[0.85rem] border border-white/8 px-3 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition-colors hover:border-industrial-accent/50 hover:text-industrial-accent"
             >
               Email
@@ -190,6 +206,9 @@ function SharePanel() {
             <button
               type="button"
               onClick={handleCopy}
+              data-analytics="cta_click"
+              data-analytics-label="Copy Link"
+              data-analytics-section-name="footer_share"
               className="flex items-center justify-between rounded-[0.85rem] border border-white/8 px-3 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition-colors hover:border-industrial-accent/50 hover:text-industrial-accent"
             >
               {copied ? "Copied" : "Copy Link"}

@@ -163,6 +163,7 @@ export default function ExpandableSections() {
             <motion.section
               key={section.id}
               id={section.id}
+              data-analytics-section={section.id}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-120px" }}
@@ -199,6 +200,9 @@ export default function ExpandableSections() {
                     <p className="mt-4 text-base leading-7 text-white/90">{section.outcome}</p>
                     <a
                       href="#contact"
+                      data-analytics="content-link"
+                      data-analytics-section-name={section.id}
+                      data-analytics-service-name={section.title}
                       className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-200 transition-colors hover:text-industrial-accent"
                     >
                       Explore This Application
