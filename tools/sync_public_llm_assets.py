@@ -33,6 +33,9 @@ def copy_docs_tree() -> None:
 def build_sitemap_urls() -> list[str]:
     urls = [
         "/",
+        "/news",
+        "/news.html",
+        "/news/glass-bottle-line-277",
         "/privacy-policy.html",
         "/llms.txt",
         "/llms-full.txt",

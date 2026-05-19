@@ -14,6 +14,7 @@ export default function Navbar({ onContactClick, isPolicyPage = false }: NavbarP
   const domainsHref = isPolicyPage ? "/#domains" : "#domains";
   const intelligenceHref = isPolicyPage ? "/#intelligence" : "#intelligence";
   const expertiseHref = isPolicyPage ? "/#expertise" : "#expertise";
+  const newsHref = "/news";
 
   return (
     <nav className="fixed left-0 top-0 z-50 w-full border-b border-white/8 bg-[#07101b]/88 backdrop-blur-xl">
@@ -23,6 +24,7 @@ export default function Navbar({ onContactClick, isPolicyPage = false }: NavbarP
         </a>
 
         <div className="hidden items-center gap-6 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-slate-300 lg:gap-7 md:flex">
+          <a href={newsHref} className="transition-colors hover:text-industrial-accent" data-analytics="nav-link" data-analytics-section-name="news">News</a>
           <a href={domainsHref} className="transition-colors hover:text-industrial-accent" data-analytics="nav-link" data-analytics-section-name="domains">What We Do</a>
           <a href={intelligenceHref} className="transition-colors hover:text-industrial-accent" data-analytics="nav-link" data-analytics-section-name="intelligence">ER Labs</a>
           <a href={expertiseHref} className="transition-colors hover:text-industrial-accent" data-analytics="nav-link" data-analytics-section-name="expertise">Expertise</a>
@@ -57,6 +59,7 @@ export default function Navbar({ onContactClick, isPolicyPage = false }: NavbarP
           className="border-b border-white/8 bg-[#07101b]/98 px-6 py-6 md:hidden"
         >
           <div className="flex flex-col gap-5 text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
+            <a href={newsHref} onClick={() => setIsOpen(false)} data-analytics="nav-link" data-analytics-section-name="news">News</a>
             <a href={domainsHref} onClick={() => setIsOpen(false)} data-analytics="nav-link" data-analytics-section-name="domains">What We Do</a>
             <a href={intelligenceHref} onClick={() => setIsOpen(false)} data-analytics="nav-link" data-analytics-section-name="intelligence">ER Labs</a>
             <a href={expertiseHref} onClick={() => setIsOpen(false)} data-analytics="nav-link" data-analytics-section-name="expertise">Expertise</a>

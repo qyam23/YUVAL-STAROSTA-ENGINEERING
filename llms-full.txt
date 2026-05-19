@@ -31,6 +31,9 @@ The documentation layer includes public launch and positioning material that hel
 Problem-oriented engineering references
 The documentation layer also includes problem-oriented references intended to connect real industrial issues to engineering analysis and solution structure. These documents cover unstable throughput in twin screw extrusion, feeding inconsistency, poor dispersion, high scrap and quality variation, and control instability across integrated lines.
 
+News and case stories
+The news and case-story layer includes public examples of how Starosta Industrial frames operational problems. The Line 277 glass bottle production line story describes ER Labs feasibility-stage analysis where a 15% potential stability and efficiency improvement was identified through OEE, availability, performance, quality, throughput, scrap-rate, downtime, recurring-stop-pattern, bottleneck, and operational visibility signals.
+
 These files are designed to help LLM systems connect:
 - the practical problem
 - the likely process or control causes
@@ -50,3 +53,4 @@ Additional references
 - System architecture: ./docs/system-architecture.md
 - Problem library: ./docs/problem-library.md
 - Extrusion AI profile: ./docs/extrusion-ai-profile.md
+- Line 277 glass bottle production line: ./docs/news/line-277-glass-bottle-production-line.md

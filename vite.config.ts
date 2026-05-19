@@ -21,6 +21,9 @@ export default defineConfig(({mode}) => {
         input: {
           main: path.resolve(__dirname, 'index.html'),
           privacyPolicy: path.resolve(__dirname, 'privacy-policy.html'),
+          news: path.resolve(__dirname, 'news.html'),
+          newsIndex: path.resolve(__dirname, 'news/index.html'),
+          newsLine277: path.resolve(__dirname, 'news/glass-bottle-line-277/index.html'),
         },
       },
     },

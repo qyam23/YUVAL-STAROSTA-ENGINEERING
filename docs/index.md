@@ -25,6 +25,9 @@ This folder contains machine-readable documentation for Starosta Industrial and 
 - [Starosta Industrial Launch Campaign](./social/starosta-industrial-launch-campaign.md)
 - [Factory Engineering Market Position](./market-position/factory-engineering-israel-us-europe.md)
 
+## News and case stories
+- [Line 277 Glass Bottle Production Line](./news/line-277-glass-bottle-production-line.md)
+
 ## Language folders
 - Hebrew: [he/](./he/)
 - English: [en/](./en/)

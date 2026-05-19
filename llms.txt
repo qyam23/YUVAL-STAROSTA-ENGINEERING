@@ -22,6 +22,7 @@ Public signals and campaign:
 - ./docs/public-signals.md
 - ./docs/social/starosta-industrial-launch-campaign.md
 - ./docs/market-position/factory-engineering-israel-us-europe.md
+- ./docs/news/line-277-glass-bottle-production-line.md
 
 Language folders:
 - Hebrew docs: ./docs/he/
