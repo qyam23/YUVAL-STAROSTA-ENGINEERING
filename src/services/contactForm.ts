@@ -8,34 +8,61 @@ export type ContactFormPayload = {
 
 const CONTACT_EMAIL = "starosta.ing@gmail.com";
 const FORMSUBMIT_TOKEN = "0523cca1d66f8f5aefffd5f3270b1550";
-const ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_TOKEN}`;
+const ENDPOINT = `https://formsubmit.co/${FORMSUBMIT_TOKEN}`;
+
+function appendHiddenInput(form: HTMLFormElement, name: string, value: string) {
+  const input = document.createElement("input");
+  input.type = "hidden";
+  input.name = name;
+  input.value = value;
+  form.appendChild(input);
+}
 
 export async function submitContactForm(payload: ContactFormPayload) {
-  const formData = new FormData();
-  formData.append("First name", payload.firstName);
-  formData.append("Last name", payload.lastName);
-  formData.append("Phone", payload.phone);
-  formData.append("Email", payload.email);
-  formData.append("Message / Notes", payload.message);
-  formData.append("Website source", "starostaindustrial.com");
-  formData.append("_subject", "New contact request from starostaindustrial.com");
-  formData.append("_template", "table");
-  formData.append("_captcha", "false");
+  const iframeName = `formsubmit_contact_${Date.now()}`;
+  const iframe = document.createElement("iframe");
+  iframe.name = iframeName;
+  iframe.style.display = "none";
+  iframe.setAttribute("aria-hidden", "true");
 
-  const response = await fetch(ENDPOINT, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-    },
-    body: formData,
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = ENDPOINT;
+  form.target = iframeName;
+  form.style.display = "none";
+
+  appendHiddenInput(form, "First name", payload.firstName);
+  appendHiddenInput(form, "Last name", payload.lastName);
+  appendHiddenInput(form, "Phone", payload.phone);
+  appendHiddenInput(form, "Email", payload.email);
+  appendHiddenInput(form, "Message / Notes", payload.message);
+  appendHiddenInput(form, "Website source", "starostaindustrial.com");
+  appendHiddenInput(form, "_subject", "New contact request from starostaindustrial.com");
+  appendHiddenInput(form, "_template", "table");
+  appendHiddenInput(form, "_captcha", "false");
+
+  document.body.appendChild(iframe);
+  document.body.appendChild(form);
+
+  await new Promise<void>((resolve, reject) => {
+    const cleanup = () => {
+      form.remove();
+      iframe.remove();
+    };
+
+    const cleanupTimeout = window.setTimeout(cleanup, 10000);
+
+    try {
+      form.submit();
+      window.setTimeout(() => {
+        window.clearTimeout(cleanupTimeout);
+        cleanup();
+        resolve();
+      }, 1200);
+    } catch {
+      window.clearTimeout(cleanupTimeout);
+      cleanup();
+      reject(new Error(`Contact form submission failed. Please try again or email ${CONTACT_EMAIL} directly.`));
+    }
   });
-
-  const data = await response.json().catch(() => null);
-
-  if (!response.ok || data?.success === "false") {
-    const message = data?.message || "Contact form submission failed.";
-    throw new Error(message);
-  }
-
-  return data;
 }
