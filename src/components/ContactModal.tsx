@@ -119,7 +119,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setFeedback("");
 
     try {
-      const result = await submitContactForm({
+      await submitContactForm({
         firstName: form.firstName.trim(),
         lastName: form.lastName.trim(),
         phone: form.phone.trim(),
@@ -128,11 +128,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       });
 
       setStatus("success");
-      setFeedback(
-        result.delivery === "formsubmit"
-          ? "Your message has been sent. We will get back to you soon."
-          : "Your email app has been opened with the message details. Please press Send there so the request reaches us."
-      );
+      setFeedback("Your message has been sent. We will get back to you soon.");
       trackEvent("generate_lead", {
         section_name: "contact_modal",
         service_name: "general_contact",
