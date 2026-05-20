@@ -6,6 +6,10 @@ export type ContactFormPayload = {
   message: string;
 };
 
+export type ContactSubmissionResult = {
+  delivery: "formsubmit" | "email_client";
+};
+
 const CONTACT_EMAIL = "starosta.ing@gmail.com";
 const FORMSUBMIT_TOKEN = "0523cca1d66f8f5aefffd5f3270b1550";
 const ENDPOINT = `https://formsubmit.co/${FORMSUBMIT_TOKEN}`;
@@ -18,7 +22,24 @@ function appendHiddenInput(form: HTMLFormElement, name: string, value: string) {
   form.appendChild(input);
 }
 
-export async function submitContactForm(payload: ContactFormPayload) {
+function buildMailtoUrl(payload: ContactFormPayload) {
+  const subject = "New contact request from starostaindustrial.com";
+  const body = [
+    `First name: ${payload.firstName}`,
+    `Last name: ${payload.lastName}`,
+    `Phone: ${payload.phone}`,
+    `Email: ${payload.email}`,
+    "",
+    "Message / Notes:",
+    payload.message,
+    "",
+    "Website source: starostaindustrial.com",
+  ].join("\n");
+
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+export async function submitContactForm(payload: ContactFormPayload): Promise<ContactSubmissionResult> {
   const iframeName = `formsubmit_contact_${Date.now()}`;
   const iframe = document.createElement("iframe");
   iframe.name = iframeName;
@@ -44,23 +65,43 @@ export async function submitContactForm(payload: ContactFormPayload) {
   document.body.appendChild(iframe);
   document.body.appendChild(form);
 
-  await new Promise<void>((resolve, reject) => {
+  return new Promise<ContactSubmissionResult>((resolve, reject) => {
+    let settled = false;
+
     const cleanup = () => {
       form.remove();
       iframe.remove();
     };
 
-    const cleanupTimeout = window.setTimeout(cleanup, 10000);
+    const finish = (result: ContactSubmissionResult) => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(fallbackTimeout);
+      window.clearTimeout(cleanupTimeout);
+      iframe.removeEventListener("load", handleLoad);
+      cleanup();
+      resolve(result);
+    };
+
+    const handleLoad = () => {
+      finish({ delivery: "formsubmit" });
+    };
+
+    const fallbackTimeout = window.setTimeout(() => {
+      window.location.href = buildMailtoUrl(payload);
+      finish({ delivery: "email_client" });
+    }, 4000);
+
+    const cleanupTimeout = window.setTimeout(cleanup, 12000);
 
     try {
+      iframe.addEventListener("load", handleLoad);
       form.submit();
-      window.setTimeout(() => {
-        window.clearTimeout(cleanupTimeout);
-        cleanup();
-        resolve();
-      }, 1200);
     } catch {
+      settled = true;
+      window.clearTimeout(fallbackTimeout);
       window.clearTimeout(cleanupTimeout);
+      iframe.removeEventListener("load", handleLoad);
       cleanup();
       reject(new Error(`Contact form submission failed. Please try again or email ${CONTACT_EMAIL} directly.`));
     }
