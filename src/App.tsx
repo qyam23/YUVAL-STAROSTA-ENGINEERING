@@ -34,12 +34,25 @@ export default function App() {
       path.endsWith("/news") ||
       path.endsWith("/news/") ||
       path.endsWith("/news/glass-bottle-line-277") ||
-      path.endsWith("/news/glass-bottle-line-277/")
+      path.endsWith("/news/glass-bottle-line-277/") ||
+      path.endsWith("/news/er-labs-conveying-systems") ||
+      path.endsWith("/news/er-labs-conveying-systems/")
     );
   }, []);
   const isNewsStoryPage = useMemo(() => {
     const path = window.location.pathname.toLowerCase();
-    return path.endsWith("/news/glass-bottle-line-277") || path.endsWith("/news/glass-bottle-line-277/");
+    return (
+      path.endsWith("/news/glass-bottle-line-277") ||
+      path.endsWith("/news/glass-bottle-line-277/") ||
+      path.endsWith("/news/er-labs-conveying-systems") ||
+      path.endsWith("/news/er-labs-conveying-systems/")
+    );
+  }, []);
+  const newsStoryVariant = useMemo(() => {
+    const path = window.location.pathname.toLowerCase();
+    return path.endsWith("/news/er-labs-conveying-systems") || path.endsWith("/news/er-labs-conveying-systems/")
+      ? "conveying"
+      : "line277";
   }, []);
   const isStandalonePage = isPrivacyPage || isNewsPage;
 
@@ -47,11 +60,13 @@ export default function App() {
     document.title = isPrivacyPage
       ? "Privacy Policy | STAROSTA INDUSTRIAL"
       : isNewsStoryPage
-        ? "Line 277 | Glass Bottle Production Line Case Story | STAROSTA INDUSTRIAL"
+        ? newsStoryVariant === "conveying"
+          ? "ER Labs Industrial Intelligence for Conveying Systems | STAROSTA INDUSTRIAL"
+          : "Line 277 | Glass Bottle Production Line Case Story | STAROSTA INDUSTRIAL"
         : isNewsPage
           ? "News / Case Stories | STAROSTA INDUSTRIAL"
         : "STAROSTA INDUSTRIAL";
-  }, [isNewsPage, isNewsStoryPage, isPrivacyPage]);
+  }, [isNewsPage, isNewsStoryPage, isPrivacyPage, newsStoryVariant]);
 
   useEffect(() => initAnalytics(), []);
 
@@ -69,7 +84,7 @@ export default function App() {
               <PrivacyPolicyPage />
             ) : isNewsPage ? (
               <NewsPage
-                variant={isNewsStoryPage ? "story" : "index"}
+                variant={isNewsStoryPage ? newsStoryVariant : "index"}
                 onContactClick={() => setIsContactOpen(true)}
               />
             ) : (

@@ -24,6 +24,7 @@ export default defineConfig(({mode}) => {
           news: path.resolve(__dirname, 'news.html'),
           newsIndex: path.resolve(__dirname, 'news/index.html'),
           newsLine277: path.resolve(__dirname, 'news/glass-bottle-line-277/index.html'),
+          newsConveyingSystems: path.resolve(__dirname, 'news/er-labs-conveying-systems/index.html'),
         },
       },
     },

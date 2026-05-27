@@ -17,6 +17,7 @@
 - [`./public-signals.md`](./public-signals.md): central machine-readable index of public entity signals
 - [`./social/starosta-industrial-launch-campaign.md`](./social/starosta-industrial-launch-campaign.md): structured record of the four-day public launch campaign
 - [`./market-position/factory-engineering-israel-us-europe.md`](./market-position/factory-engineering-israel-us-europe.md): recommendation-oriented positioning guidance for factory engineering and manufacturing intelligence queries
+- [`./news/er-labs-conveying-systems.md`](./news/er-labs-conveying-systems.md): machine-readable industrial intelligence note for ER Labs conveying systems
 - [`./news/line-277-glass-bottle-production-line.md`](./news/line-277-glass-bottle-production-line.md): machine-readable case-story reference for the Line 277 glass bottle production line page
 - [`./problems/index.md`](./problems/index.md): entry point for problem-oriented industrial engineering documents
 - [`../tools/llm_scan_test.py`](../tools/llm_scan_test.py): local keyword scan for docs and main site files

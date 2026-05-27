@@ -26,6 +26,7 @@ This folder contains machine-readable documentation for Starosta Industrial and 
 - [Factory Engineering Market Position](./market-position/factory-engineering-israel-us-europe.md)
 
 ## News and case stories
+- [ER Labs Industrial Intelligence for Conveying Systems](./news/er-labs-conveying-systems.md)
 - [Line 277 Glass Bottle Production Line](./news/line-277-glass-bottle-production-line.md)
 
 ## Language folders

@@ -1,10 +1,11 @@
 import { motion } from "motion/react";
-import { ArrowRight, BarChart3, Factory, Gauge, LineChart, Search } from "lucide-react";
+import { ArrowRight, BarChart3, Factory, Gauge, LineChart, Route, Search, SlidersHorizontal } from "lucide-react";
 import glassLineWide from "../assets/news/glass-line-wide.png";
 import line277Dashboard from "../assets/news/line-277-dashboard.png";
+import conveyingSystemsImage from "../assets/news/er-labs-conveying-systems.png";
 
 type NewsPageProps = {
-  variant?: "index" | "story";
+  variant?: "index" | "line277" | "conveying";
   onContactClick: () => void;
 };
 
@@ -54,6 +55,88 @@ const storySections = [
   },
 ];
 
+const conveyingInsights = [
+  {
+    title: "Behavior change",
+    text: "ER Labs watches conveying behavior around pressure, vacuum, transfer efficiency, and demand shifts.",
+    icon: Gauge,
+  },
+  {
+    title: "Early blockage signals",
+    text: "Gradual clogging, repeated interventions, and abnormal load can be identified before they become line stops.",
+    icon: Search,
+  },
+  {
+    title: "Supply and demand balance",
+    text: "Material transfer capacity is compared with real consumption points and production demand.",
+    icon: Route,
+  },
+  {
+    title: "Control-layer context",
+    text: "PLC, HMI, SCADA, and operational data are connected into a decision-support layer above the existing controls.",
+    icon: SlidersHorizontal,
+  },
+];
+
+const conveyingArticleBlocks = [
+  { text: "ER Labs has developed an Industrial Intelligence layer for industrial conveying systems.", strong: true },
+  { text: "Not to replace SCADA." },
+  { text: "To extend it." },
+  {
+    text:
+      "To add a layer that understands conveying behavior, detects operational change, and supports intervention before the issue reaches the production line.",
+  },
+  { text: "In most industrial plants, conveying systems are already connected to PLC, HMI, or SCADA platforms." },
+  { text: "The data exists.\nThe alarms exist.\nThe screens exist." },
+  { text: "But the operational decision is still mostly handled by people." },
+  {
+    text:
+      "When to adjust the conveying rate.\nWhen to identify a filter starting to clog.\nWhen to recognize that the material has changed.\nWhen to stop before a blockage occurs.\nWhen to balance conveying capacity with production demand.",
+  },
+  { text: "This is where plants lose stability, throughput, and money." },
+  { text: "A conveying system is not just piping, pumps, and valves." },
+  {
+    text:
+      "It is an operational system affected by material behavior, pressure, vacuum, moisture, bulk density, filters, conveying distances, consumption points, production rates, and operator interventions.",
+  },
+  { text: "When one of these variables changes, the impact is not always visible immediately." },
+  {
+    text:
+      "Sometimes it appears as a short stop.\nSometimes as a gradual drop in throughput.\nSometimes as a quality rejection.\nSometimes as a line that simply starts working harder.",
+  },
+  { text: "This is where ER Labs comes in." },
+  {
+    text:
+      "ER Labs adds an Industrial Intelligence layer above existing control systems, designed to turn conveying data into clear operational decisions.",
+  },
+  { text: "Not just another alarm.\nNot just another trend.\nNot just another data report." },
+  {
+    text:
+      "A layer that understands what is changing, what the operational meaning is, and where intervention is required.",
+  },
+  {
+    text:
+      "It can identify patterns such as reduced material transfer efficiency, early signs of blockage, repeated operator interventions, abnormal load at a consumption point, or a mismatch between material supply and production demand.",
+  },
+  { text: "The goal is not to add another screen to the factory." },
+  { text: "The goal is to add a layer of understanding." },
+  { text: "This is where Starosta Industrial specializes:" },
+  {
+    text:
+      "Connecting control systems, HMI, SCADA, operational data, and AI intelligence layers in a way that supports production continuity, not just data visualization.",
+  },
+  { text: "Because in the end, a conveying problem is not only a material handling problem." },
+  { text: "It is an operational control problem." },
+  {
+    text:
+      "And when raw material supply is unstable, it quickly becomes a problem of throughput, quality, downtime, and P&L.",
+  },
+  { text: "SCADA shows the system.", strong: true },
+  { text: "ER Labs helps control the flow.", strong: true },
+  { text: "Not just conveying lines.", strong: true },
+  { text: "Industrial intelligence in motion.", strong: true },
+];
+
 function NewsIndex({ onContactClick }: Pick<NewsPageProps, "onContactClick">) {
   return (
     <main className="min-h-screen pt-20">
@@ -100,8 +183,14 @@ function NewsIndex({ onContactClick }: Pick<NewsPageProps, "onContactClick">) {
             </a>
           </motion.div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <article className="rounded-[1.4rem] border border-industrial-accent/22 bg-white/[0.035] p-7">
+          <div className="mt-12 grid items-start gap-6 md:grid-cols-2">
+            <a
+              href="/news/glass-bottle-line-277"
+              className="group rounded-[1.4rem] border border-industrial-accent/22 bg-white/[0.035] p-7 transition-colors duration-300 hover:border-industrial-accent/55 hover:bg-white/[0.05]"
+              data-analytics="content-link"
+              data-analytics-section-name="news_index"
+              data-analytics-service-name="line_277_case_story"
+            >
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-industrial-accent">
                 Case story
               </p>
@@ -111,33 +200,40 @@ function NewsIndex({ onContactClick }: Pick<NewsPageProps, "onContactClick">) {
               <p className="mt-4 text-sm leading-7 text-slate-300">
                 How ER Labs identified a 15% stability and efficiency gap during the feasibility stage.
               </p>
-              <a
-                href="/news/glass-bottle-line-277"
-                className="mt-6 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-industrial-accent"
-              >
+              <span className="mt-6 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-industrial-accent">
                 Read story
-                <ArrowRight size={14} />
-              </a>
-            </article>
+                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </a>
 
-            <article className="rounded-[1.4rem] border border-white/10 bg-white/[0.025] p-7">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-slate-400">
-                Next stories
-              </p>
-              <h3 className="mt-3 text-2xl font-semibold text-white">
-                More operational intelligence notes will be added here.
-              </h3>
-              <p className="mt-4 text-sm leading-7 text-slate-400">
-                Future entries can cover extrusion, compounding, automation, PLC/HMI visibility, bottleneck analysis, and factory data diagnostics.
-              </p>
-              <button
-                type="button"
-                onClick={onContactClick}
-                className="mt-6 rounded-sm border border-industrial-accent/70 px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-industrial-accent transition-all duration-300 hover:bg-industrial-accent hover:text-industrial-dark"
-              >
-                Start a similar analysis
-              </button>
-            </article>
+            <a
+              href="/news/er-labs-conveying-systems"
+              className="group overflow-hidden rounded-[1.4rem] border border-white/10 bg-white/[0.025] transition-colors duration-300 hover:border-industrial-accent/45 hover:bg-white/[0.045]"
+              data-analytics="content-link"
+              data-analytics-section-name="news_index"
+              data-analytics-service-name="er_labs_conveying_systems"
+            >
+              <img
+                src={conveyingSystemsImage}
+                alt="Industrial conveying pipe systems"
+                className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+              />
+              <div className="p-7">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-industrial-accent">
+                  Industrial intelligence note
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold text-white">
+                  ER Labs | Industrial Intelligence for Conveying Systems
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  A control-layer view of conveying behavior, material flow, blockage risk, and operational decision support.
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-industrial-accent">
+                  Read story
+                  <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -145,7 +241,7 @@ function NewsIndex({ onContactClick }: Pick<NewsPageProps, "onContactClick">) {
   );
 }
 
-function CaseStory({ onContactClick }: Pick<NewsPageProps, "onContactClick">) {
+function Line277Story({ onContactClick }: Pick<NewsPageProps, "onContactClick">) {
   return (
     <main className="min-h-screen pt-20">
       <section className="relative overflow-hidden px-4 pb-12 pt-16 sm:px-8 sm:pb-16 sm:pt-24">
@@ -297,6 +393,150 @@ function CaseStory({ onContactClick }: Pick<NewsPageProps, "onContactClick">) {
   );
 }
 
+function ConveyingStory({ onContactClick }: Pick<NewsPageProps, "onContactClick">) {
+  return (
+    <main className="min-h-screen pt-20">
+      <section className="relative overflow-hidden px-4 pb-12 pt-16 sm:px-8 sm:pb-16 sm:pt-24">
+        <div
+          className="absolute inset-0 opacity-[0.18]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundSize: "46px 46px",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-end"
+          >
+            <div>
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-industrial-accent">
+                News / Industrial Intelligence
+              </p>
+              <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-6xl">
+                ER Labs: Industrial Intelligence for Conveying Systems
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+                Not to replace SCADA. To extend it with a layer that understands conveying behavior and supports intervention before instability reaches the production line.
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-industrial-accent/24 bg-[linear-gradient(135deg,rgba(212,175,55,0.16),rgba(83,184,255,0.08))] p-6 shadow-[0_28px_60px_rgba(0,0,0,0.26)]">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-industrial-accent">
+                Control-layer signal
+              </p>
+              <div className="mt-5 flex flex-col gap-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">
+                <span>SCADA shows the system.</span>
+                <span className="text-industrial-accent">ER Labs helps control the flow.</span>
+              </div>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-300">
+                Not just conveying lines. Industrial intelligence in motion.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="px-4 py-10 sm:px-8 sm:py-14">
+        <div className="mx-auto max-w-7xl">
+          <motion.figure
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.025]"
+          >
+            <img
+              src={conveyingSystemsImage}
+              alt="Industrial conveying pipe systems inside a production facility"
+              className="h-full min-h-[24rem] w-full object-cover"
+            />
+          </motion.figure>
+        </div>
+      </section>
+
+      <section className="px-4 py-10 sm:px-8 sm:py-14">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {conveyingInsights.map((insight, index) => {
+              const Icon = insight.icon;
+              return (
+                <motion.article
+                  key={insight.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.45, delay: index * 0.04 }}
+                  className="rounded-[1.35rem] border border-white/10 bg-white/[0.035] p-6"
+                >
+                  <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-full border border-industrial-accent/30 bg-industrial-accent/10 text-industrial-accent">
+                    <Icon size={20} />
+                  </div>
+                  <h2 className="text-xl font-semibold text-white">{insight.title}</h2>
+                  <p className="mt-4 text-sm leading-7 text-slate-400">{insight.text}</p>
+                </motion.article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-10 sm:px-8 sm:py-16">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+          <aside className="h-fit rounded-[1.5rem] border border-industrial-accent/24 bg-[#0a1421] p-7 lg:sticky lg:top-28">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-industrial-accent/35 bg-industrial-accent/10 text-industrial-accent">
+              <Factory size={22} />
+            </div>
+            <h2 className="mt-6 text-3xl font-semibold text-white">Operational flow intelligence</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-400">
+              A conveying problem is not only a material handling problem. It is an operational control problem that can quickly become a throughput, quality, downtime, and P&L problem.
+            </p>
+            <button
+              type="button"
+              onClick={onContactClick}
+              className="mt-7 inline-flex items-center gap-3 rounded-sm border border-industrial-accent/70 px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-industrial-accent transition-all duration-300 hover:bg-industrial-accent hover:text-industrial-dark"
+            >
+              Start a similar analysis
+              <ArrowRight size={14} />
+            </button>
+          </aside>
+
+          <motion.article
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.45 }}
+            className="rounded-[1.35rem] border border-white/10 bg-white/[0.03] p-7 sm:p-9"
+          >
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-industrial-accent">
+              Article
+            </p>
+            <div className="mt-6 space-y-6 text-base leading-8 text-slate-300">
+              {conveyingArticleBlocks.map((block, index) => {
+                const lines = block.text.split("\n");
+                return (
+                  <p key={`${block.text.slice(0, 24)}-${index}`} className={block.strong ? "font-semibold text-white" : undefined}>
+                    {lines.map((line, lineIndex) => (
+                      <span key={line}>
+                        {lineIndex > 0 && <br />}
+                        {line}
+                      </span>
+                    ))}
+                  </p>
+                );
+              })}
+            </div>
+          </motion.article>
+        </div>
+      </section>
+    </main>
+  );
+}
+
 export default function NewsPage({ variant = "index", onContactClick }: NewsPageProps) {
-  return variant === "story" ? <CaseStory onContactClick={onContactClick} /> : <NewsIndex onContactClick={onContactClick} />;
+  if (variant === "line277") return <Line277Story onContactClick={onContactClick} />;
+  if (variant === "conveying") return <ConveyingStory onContactClick={onContactClick} />;
+  return <NewsIndex onContactClick={onContactClick} />;
 }

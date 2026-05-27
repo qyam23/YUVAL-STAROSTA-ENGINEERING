@@ -36,6 +36,7 @@ def build_sitemap_urls() -> list[str]:
         "/news",
         "/news.html",
         "/news/glass-bottle-line-277",
+        "/news/er-labs-conveying-systems",
         "/privacy-policy.html",
         "/llms.txt",
         "/llms-full.txt",
